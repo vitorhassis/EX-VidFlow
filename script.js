@@ -1,9 +1,9 @@
-const containerVideos = document.querySelector(".videos__container")
+const containerVideos = document.querySelector(".videos__container");
 
 
 async function buscarEMostrarVideos() {
     try {
-        const busca = await fetch("http://localhost:3000/videos")
+        const busca = await fetch("http://localhost:3000/videos");
         const videos = await busca.json();
         
             videos.forEach((video)=> {
@@ -23,14 +23,14 @@ async function buscarEMostrarVideos() {
     } 
 }
 
-buscarEMostrarVideos()
+buscarEMostrarVideos();
 
-const barraDePesquisa = document.querySelector(".pesquisar__input")
+const barraDePesquisa = document.querySelector(".pesquisar__input");
 
-barraDePesquisa.addEventListener("input", filtrarPesquisa)
+barraDePesquisa.addEventListener("input", filtrarPesquisa);
 
  function filtrarPesquisa() {
-    const videos = document.querySelectorAll(".videos__item")
+    const videos = document.querySelectorAll(".videos__item");
 
     if(barraDePesquisa.value != "") {
         for(let video of videos){
@@ -38,12 +38,26 @@ barraDePesquisa.addEventListener("input", filtrarPesquisa)
             let valorFiltro = barraDePesquisa.value.toLowerCase();
 
             if(!titulo.includes(valorFiltro)) {
-                video.style.display = "none"
+                video.style.display = "none";
             } else {
-                video.style.display = "block"
+                video.style.display = "block";
             }
-        }
+        } 
     } else {
         videos.forEach(video => video.style.display = 'block');
+    }
+ }
+
+ const botaoCategoria = document.querySelectorAll("superior__item");
+
+ botaoCategoria.forEach((botao) => {
+    let nomeCategoria = botao.getAttribute("name");
+    botao.addEventListener("click", () => filtrarPorCategoria(nomeCategoria))
+ })
+
+ function filtrarPorCategoria(filtro) {
+    const videos = document.querySelectorAll(".videos__item")
+    for(let video of videos) {
+        
     }
  }
