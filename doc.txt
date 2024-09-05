@@ -1,0 +1,389 @@
+	-var = tem escopo de FUNÇÃO. Ou seja, uma variavel declarada com var está disponivel em toda função onde foi 
+declarada, independentemente em que bloco está;
+-let = tem escopo de bloco. Isso significa que ela so vai ter funcionalidade dentro do bloco em que foi declarada.
+voce nao consegue chamar ela novamente, fora do escopo inicial;
+-const = declarar variáveis que não devem ser reatribuídas, adicionando uma camada extra de segurança ao seu código;
+-VAR E LET SAO VARIAVEIS, MAS POSSUEM DIFERENÇAS;
+--------------------------------------------------------------------------------------------------------------------
+-API = permite os desenvolvedores acessar e manipular diversos aspectos do ambiente de execução;
+-CRIANDO A API FAKE = abre o terminal, - npm install json-server - , dps - npx json-server db.json -, nisso ele ja
+te da o que voce precisa;
+-array = é uma estrutura de dados usada para armazenar uma coleção de itens;
+-string = sequencia de caracteres usada para representar texto;
+-JSON = O JSON é amplamente utilizado na web para a transmissão de dados entre um cliente e um servidor. Por exemplo,
+ uma aplicação web pode fazer uma requisição a um servidor, e o servidor pode responder com dados formatados em JSON. 
+O cliente então pode ler esses dados e usá-los para atualizar a interface do usuário ou realizar outras operações;
+- Usamos dois .then, duas chamadas usando ele, o que chamamos de CALLBACK, que basicamente eh, uma função que espera
+que outra função seja executada para ele funcionar. O primeiro .then, pega a resposta do nosso fatch e transforma
+em um .json, e o outro para caminhar por todos os videos que pegamos do ,json e fazer todas as alterações em html;
+--------------------------------------------------------------------------------------------------------------------
+TAGS
+-arrow function = forma concisa de escrever funções em JavaScript.  Essas funções são chamadas assim por causa da 
+sintaxe que utiliza a "seta" (=>);
+-fetch = O fetch é um método do JavaScript que significa "buscar". O lugar em que buscaremos é a API. Podemos copiar 
+exatamente  o link do terminal - http://localhost::3000/videos - , e colar esse link dentro do fetch(). Usamos o 
+fetch() para realizar uma busca, e, quando essa busca acabou, pedimos para visualizar a resposta, que é um código 
+enorme. Basicamente, o que nos importa é ter aparecido ok:true, ou seja, está tudo corrteo, e o status 200;
+-Promises: sao objetos que representam o estado de uma opearação assíncrona. Na programação assíncrona, o código nao 
+espera que uma linha seja concluida antes de passar para a proxima, isso é mt util quando estamos realizando tarefas
+que podem demorar algum tempo, como carregar uma imagem, ou buscar dados de um servidor. As Promises podem ter 3 
+estados. Pendente, Fulfilled, ou rejected (a operacao falhou). EX:
+
+let promise = new Promise((resolve, reject) => {
+    // código assíncrono aqui
+    if (/* tudo ocorreu bem */) {
+        resolve("funcionou!");
+    } else {
+        reject("houve um erro");
+    }
+});
+
+
+promise.then((message) => {
+    console.log("Sucesso: " + message);
+}).catch((message) => {
+    console.error("Erro: " + message);
+});
+
+-neste caso, na primeira parte, temos uma função que recebe dois parametros: Resolve e Reject, que sao funções que 
+serão chamadas quando a Promise for resolvida ou rejeitada. Depois que a Promise eh retornada, podemos lidar com seu
+resultado utilizando o método THEN para caso de sucesso (Resolvida) e o método CATCH para caso de erro (Rejeitado).
+Tambem temos:
+	.then = vai esperar a promisse ficar fulfilled, e quando ficar preenchida, vai acontecer algo com ela.
+<iframe> </iframe> = incorporar video;
+	.catch = vai analisar o bloco de codigo, e vai PEGAR se algum erro acontecer;
+
+-Await = Aguardar. Voce nao precisa colocar agora o .then
+-async function(){} = Indica ao js que, dentro do bloco dele, terao códigos assíncronos dentro dele (que parecem
+síncrono);
+-try/catch =  try. vai tentar realizar o código todo dentro do bloco. Caso capture algum erro, vai realizar tudo
+o q está indicado dentro de catch;
+-finally = outro recurso usado com try/catch. Finally, significa finalmente. Ou seja, independente se tiver o erro
+ou nao, ele vai executar o finally. Ele sempre vai acontecer. Nao adicionamos no codigo, mas temos esse recurso
+disponivel em algum caso necessário;
+-tem como voce se prevenir de um erro mais específico. Por exemplo, voce quer que apareça uma mensagem de erro
+caso algum elemento "categoria" (cada video, dentro de videos.json, tem uma série de dados, sendo uma delas, 
+"categoria". Neste caso abaixo, vc quer que apareça um erro caso algum dos 13 categorias esteja vazio. Voce faria:
+	videos.forEach((video)=> {
+                 //if(video.categoria = "") {
+                    throw new Error ('video não tem categoria')
+                }//
+                containerVideos.innerHTML (...)
+
+-CALLBACK: Os callbacks são amplamente utilizados para lidar com tarefas assíncronas, como chamadas de API, leitura 
+de arquivos, eventos de usuário e muito mais;
+
+-addEventListener("input") = ja sabiamos do evento de click. Esse do input, eh pra qnd alguem escrever algo naquela
+caixa do input. Lembrar que o primeiro espaço do parenteses vc deve indicar uma ação, algo do tipo, e no segundo
+espaço voce destina a função. Ou seja, oq vai acontecer ao clicar, escrever, etc;
+
+-FUNCTION:
+-os parametros de funcoes em js geralmente nao sao colocados entre aspas, as aspas sao usadas para indicar valores
+de STRINGS (textos)
+-importante entender que, para ficar mais facil, faz mais sentido voce criar a funcao antes de vc aplicar ela, da 
+na mesma se vc aplicar funcionalidade dela e dps deste suposto bloco vc criar ela, mas fica mais confuso. Primeiro,
+eh importante lembrar que quando criamos a funcao de fato, dentro dos ( ) nos temos o chamada parametro da funcao,
+em que geralmente, nao colocamos entre aspas. Ent, parametro da função é uma declaração da função, que vai receber
+valores quando a função for chamada, esses valores sao tambem chamados de argumentos. (sim, o parametro definido
+pode sim receber valores/argumentos. Apartir do momento, em que depois que criamos uma função e definimos seu 
+parametro, chamamos a funcao com outra string dentro dos ( ). É como se o parametro da função CONTEM o valor passado.
+EX: function filtrarPorCategoria(filtro) {}
+-temos uma function chamada de filtrarPorCategoria, e possui "filtro" como PARAMETRO. tudo ok. segue...
+ botao.addEventListener("click", () => filtrarPorCategoria(nomeCategoria))
+-nesta linha de um bloco logo abaixo, (preste atencao apenas no final dela) filtrarPorCategoria(nomeCategoria)),este
+"nomeCategoria" vai conter o parametro (filtro), vai estar dentro deste parametro. Entao, para finalizarmos:
+a filtrarPorCategoria(nomeCategoria) AINDA possui como parametro, "filtro", mas "nomeCategoria" eh o valor/argumento
+da função. (o valor/argumento que pode se atribuir numa funcao, nao vai substituir o parametro dela. Como dito 
+anteriormente, eh como se o parametro "filtro", está agora, hospedando o novo valor/argumento da função;
+-ARROW FUNCTION = mais curta e direta, quando comparada com a criacao de uma funcao tradicional. O grande diferencial
+entre funcoes tradicionais e arrow function eh o comportamento do this. Em funções tradicionais, o valor de this 
+depende de como a função eh chamada. Em arrow functions, o valor de this eh lexicalmente herdado do escopo em que a 
+função foi definida. Isso significa que o this dentro de uma arrow function se refere ao this do contexto onde a 
+função foi definida;
+-FREQUENTEMENTE USADAS COMO CALLBACKS DEVIDO A SUA SINTAXE CONCISA E O COMPORTAMENTO DE THIS. CALLBACKS - funcao
+passada como argumento pra outra funcao. Amplamente usadas em operações assincronas, como este caso de consumo de API;
+--------------------------------------------------------------------------------------------------------------------
+ENTENDENDO CODIGO
+const containerVideos = document.querySelector(".videos__container")
+
+
+const busca = fetch("http://localhost:3000/videos")
+.then(res => res.json()) //retorna uma nova Promise, que resolve com o resultado da CONVERSÃO DO CORPO EM UM OBJ JS.
+.then((videos) =>
+    videos.forEach((video)=> {
+        containerVideos.innerHTML += `
+        <li class="videos__item">
+        <iframe src="${video.url}" title="${video.titulo}" frameborder="0" allowfullscreen></iframe>
+        <div class="descricao-video">
+            <img class="img-canal" src="${video.imagem} alt = "logo do canal">
+            <h3 class="titulo-video">${video.titulo}</h3>
+            <p class ="titulo-canal">${video.descricao}</p>
+        </div>
+        </li>
+        `; 
+    })
+
+)
+
+OBS: Uso de crases porque vamos interpolar variáveis, ja que vc vai interpolar a variavel video.url, .titulo, etc;
+
+1- fizemos um container la no html, deixamos ele vazio e buscamos ele aq no js pelo dom;
+
+2- constante api,faz ele ir buscar la no endereço indicado ("http://localhost:3000/videos"), retornando uma Promise;
+
+3- .then(res => res.json()) = o then eh usado para lidar com a promise retornada pelo fetch. a primeira função then
+recebe a resposta (res) e chama o res.json(), para transformar o corpo da resposta em um objeto JSON. Porque fazer
+esta conversão? Porque quando fazemos a requisição, ou seja a busca, a resposta eh geralmente recebida como uma 
+string no formato JSON. Para manipularmos esses dados no JS, precisamos converte-los de uma string JSON para um 
+Objeto JavaScript, permitindo agora acessar e trabalhar com os dados de uma forma mais estruturada e facil de usar. 
+Agora, o res.json() retorna uma nova Promise, que contem os dados diretamente acessíveis, os dados dos videos;
+
+4- then((videos) => O argumento videos é a lista de vídeos que foi convertida do JSON;
+
+5- videos.forEach((video) => { ... } usamos o método forEach para repetir sobre cada ((video) no array `videos`.Logo,
+para cada video,o bloco de código dentro das chaves eh executado. Dentro do bloco de código forEach, temos:
+
+6- Dentro do bloco do codigo forEach, temos um Template String que eh usado para criar Strings HTML para cada video:
+adicionamos um item de lista li, ao conteudo HTML (.innerHTML) do elemento containerVideos. O conteudo adicionado, 
+inclui tambem um iframe para exibir o video, usando a URL do video (`video.url`) e o titulo (`video.titulo`), uma 
+div contendo uma img do canal com a url da imagem (`video.imagem`) e um atributo alternativo (alt) descritivo. Um 
+titulo h3, com o titulo do video (`video.titulo`) um paragrafo p com a descrição do video (`video.descricao`). Ou 
+seja, as strings HTML, assim como sua funcionalidade, foram usadas para modificar o conteudo de uma pagina 
+(adicionando lista, iframe, img, div) atraves do Js DINAMICAMENTE.
+
+RESUMO: o código faz uma requisição a uma API local para obter uma lista de vídeos, converte a resposta para um 
+formato JSON, itera sobre cada vídeo na lista e cria dinamicamente um elemento HTML para cada um, adicionando-os ao 
+elemento containerVideos na página.
+
+
+quando eu receber o valor da resposta, agora convertido em json, fizemos uma arrow function que chama os videos,
+e para cada video dos videos que vao vir, fizemos mais uma arrow function para este video em específico. Buscamos 
+o container criado la em HTML .innerHTML += para que a cada video, seja acrescentado tudo oq adicionado dentro do
+bloco. Usa-se crase, pq vai ser usado o template string (integrar dinamicamente o html com o js)
+
+
+.catch((error)=>{
+    containerVideos.innerHTML = `<p>Houve um erro ao carregar os vídeos: ${error}</p>`
+})
+- o catch serve para BUSCAR e dar uma resposta caso tenha algum erro. Neste caso, o (error) pode ter qualquer outra
+nomenclatura. colocamos basicamente que, no containerVideos, vamos adicionar no html (.innerHTML) uma mensagem:
+`<p> houve um erro ao carregar os videos: ${error}</p>`. Entre crases, pq tem interpolação, uma template string com
+string html. para verificar isso, vá la em cima, no endereço indicado e exclua algum caractere e de f5 na pag. irá
+aparecer no espaço containerVideos a mensagem indicada;
+
+//////////////////
+
+function filtrarPesquisa()
+- essa funcao, sera responsavel por capturar os videos no html, e caminhar por eles comparando se o input que a 
+pessoa colocou eh igual ao titulo do video; 
+
+if(barraDePesquisa.value != "") {
+-se tiver algum valor dentro de barraDePesquisa, ou seja, se a barraDePesquisa.value nao estiver, nao for igual,
+a vazio, (por isso != nao for igual) vazio foi representado por "" aspas duplas sem nada dentro, que representa o
+vazio, ent se nao for igual a vazio vai executar o codigo dentro do bloco;
+-fizemos um for(let video of videos) permitindo que percorramos esses videos;
+
+let titulo = video.querySelector(".titulo-video").textContent.ToLowerCase()
+-criamos uma let para chamada titulo, que captura usando o DOM um h3 da classe .titulo-video que criamos aq pelo js,
+e o .textContent serve para CAPTURAR o conteudo de texto que estará dentro deste h3;
+- .toLowerCase() = precisamos que o texto capturado seja MINUSCULO, para compararmos o texto do titulo, com o texto
+que vai ser inserido no input;
+
+let valorFiltro = barraDePesquisa.value.toLowerCase()
+-para compararmos o texto inserido na barra de pesquisa, e os titulos dos videos, precisamos capturar tambem o texto
+da barra de pesquisa e compararmos estes dois textos;
+
+////////////////////
+
+if(!titulo.includes(valorFiltro)) {
+                video.style.display = "none"
+            } else {
+                video.style.display = "block"
+            }
+-Se o titulo do video nao inclui o valor que a pessoa está pesquisando, vamos sumir com este video, pq eles nao se
+correspondem. o video.style.display = "none" seria exatamente isto;
+- se nao, o video.style.display = block. Ou seja, se o titulo do video nao inclui o valor que a pessoa está 
+pesquisando (nao for igual) eles nao se correspondem, entao nao vai aparecer nada (se vc digitar aodkdaoskdka, ou
+seja, qualquer merda que nao tenha relação com nenhum video, nao vai aparecer nada) agora, else, se nao, ou seja,
+se o titulo do video incluir o valor que a pessoa está digitando/pesquisando, "block". Ou seja, vai exibir os videos;
+
+////////////////////
+
+function filtrarPesquisa() {
+    const videos = document.querySelectorAll(".videos__item")
+
+    if(barraDePesquisa.value != "") {
+        for(let video of videos){
+            let titulo = video.querySelector(".titulo-video").textContent.toLowerCase();
+            let valorFiltro = barraDePesquisa.value.toLowerCase();
+
+            if(!titulo.includes(valorFiltro)) {
+                video.style.display = "none"
+            } else {
+                video.style.display = "block"
+            }
+        }
+    } else {
+         video.style.display = 'block';
+    }
+ }
+-agora vamos entender como um todo. Primeiro,a funcao que nomeamos como FiltrarPesquisa. Ela tem como finalidade,
+CAPTURAR os videos no html e caminhar por eles, comparando com o input de pesquisa, vendo se eh igual ao oq a pessoa
+escreveu. Caso seja, vai aparecer o video. Ou seja, assimilar o texto da pesquisa, do input, com o titulo dos videos;
+-Criamos uma const chamada videos, que vai pegar pela classe .videos__item pelo DOM;
+-colocamos um if, em diz: Se o valor/texto da barraDePesquisa for DIFERENTE DE VAZIO, irá: 
+-o for foi usado para realizar esta comparação em que comentamos anteriormente (let video of videos, ou seja, esta
+expressão eh usada para iterar sobre os elementos de um ARRAY OU COLEÇÃO. A expressão let...of... eh uma forma de 
+loop introduzida para percorrer objetos iteráveis, como comentamos linha acima, arrays por exemplo. Neste caso, 
+`videos` eh uma coleção, um array, e `video` eh a variavel que representará CADA VIDEO desta array! Muito importante
+colocar nomes que fazer sentido nas variaveis. Facilita muito a sua montagem dentro de funções,etc.);
+-agora dentro do for, que eh responsavel por fazer todo o lance de assimilar o texto do input com o titulo dos 
+videos, criamos uma let chamada titulo, que captura pelo DOM, o h3 .titulo-video que criamos aq pelo js, e o 
+text.container para CAPTURAR o contexto de texto que estará dentro deste h3! o .toLowerCase() eh pq precisamos que o
+texto capturado esteja em MINUSCULO;
+-A outra let valorFiltro, faz a mesma coisa;
+-o if = se o titulo do video nao inclui o valorFiltro, ou seja, se o titulo do video (.titulo) NAO  inclui o 
+valorFiltro (nao sao iguais, nao correspondem ao mesmo valor) nao aparecerá nenhum video (video.style.display none)
+se nao, (se o titulo do video inclui o valor filtro, sao iguais, sao correspondentes, sao textos iguais) display
+block, ou seja, vai exibir o video!;
+-Por fim, o else de baixo, corresponde ao if la de cima, o if la de cima dizia que, SE a barra de pesquisa NAO (!)
+estiver vazia, e todo o lance do if... . O ultimo else corresponde ao if la de cima, ou seja, se a barra de pesquisa
+ESTIVER VAZIA, eh para aparecer todos os videos, ate pq a pessoa n procurou por nenhum video. por isto, 
+video.style.display = 'block';
+
+/////////////////////////
+
+if(barraDePesquisa.value != "") {
+        for(let video of videos){
+            let titulo = video.querySelector(".titulo-video").textContent.toLowerCase();
+            let valorFiltro = barraDePesquisa.value.toLowerCase();
+
+            if(!titulo.includes(valorFiltro)) {
+                video.style.display = "none"
+            } else {
+                video.style.display = "block"
+            }
+        }
+    } else {
+        videos.forEach(video => video.style.display = 'block');
+    }
+-Como dito anteriormente, utilizamos o for (let video of videos) para fazer esta procura do video na array videos,
+mas podemos fazer isto de outro maneira, usando algo que ja usamos antes exatamente para esta mesma funcionalidade,
+de selecionar um item de uma array. Usando o .forEach! por isto, vamos fazer algumas alterações no código, em que, 
+anteriormente, usava o for. Utilizando o .forEach, teremos:
+
+ videos.forEach((video) => {
+    const titulo = video.querySelector('.titulo-video').textContent.toLowerCase();
+
+    video.style.display = valorFiltro ? titulo.includes(valorFiltro) ? 'block' : 'none' : 'block';
+  });
+}
+
+////////////////////////
+const botaoCategoria = document.querySelectorAll("superior__item") 
+-vai pegar os botoes superiores, categorias;
+
+botaoCategoria.forEach((botao) => {
+    let nomeCategoria = botao.getAttribute
+ })
+-para cada botao de categoria, vou fazer um forEach (atribuir coisas a um elemento de uma array) que vai pegar 
+este botao ((botao)), fizemos uma arrow function com uma var nomeCategoria que vai la no botao, vai acessar e 
+ARMAZENAR o name de cada botao;
+
+///////////////////////
+
+botao.addEventListener("click", () => filtrarPorCategoria(nomeCategoria))
+-adicionamos um evento (do tipo click) clicar no botao, que vai chamar a função filtrarPorCategoria, que vai receber
+o/os nome/nomes da categoria do botao/botoes clickado/s;
+-entender a relação da funcao com o seu parametro;
+
+//////////////////////
+
+function filtrarPorCategoria(filtro) {
+    const videos = document.querySelectorAll(".videos__item")  
+ }
+
+-Entender que apesar da ordem estar meio bugada, primeiro vc cria e define uma funcao e dps vc chama ela. Entao,
+temos uma function chamada de filtrarPorCategoria(filtro) filtro eh o parametro da função. Ent, qnd chamamos a função
+em cima (o certo era ta a funcao primeiro, dps o bloco q chama ela, faz mais sentido), 
+filtrarPorCategoria(nomeCategoria)), o parametro da funcao continua sendo "filtro", mas ele vai dar espaço para 
+"nomeCategoria", que o ARGUMENTO que vai receber os valores, ou seja, a variavel que criamos;
+
+///////////////////////
+
+for(let video of videos) {
+        
+    }
+-vamos usar o for ( ) para
+
+/////////////////////
+
+<p class="categoria" hidden>${video.categoria}</p>
+-criamos um p da class categoria escondida (hidden), ela so vai servir para conseguirmos pegar a a informação da 
+categoria do video la na api;
+
+/////////////////////
+
+function filtrarPorCategoria(filtro) {
+    const videos = document.querySelectorAll(".videos__item")
+    for(let video of videos) {
+        let categoria = video.querySelector(".categoria").textContent.toLowerCase();
+        let valorFiltro = filtro.toLowerCase();
+
+        if(!categoria.includes(valorFiltro) && valorFiltro != 'tudo') {
+            video.style.display = "none";
+        } else {
+            video.style.display = "block";
+        }
+    }
+ }
+-A função filtrarPorCategoria filtra e exibe uma lista de vídeos com base em uma categoria fornecida pelo usuário.Se 
+a categoria do vídeo não corresponder ao filtro, o vídeo será ocultado;
+-A função utiliza um loop for(...of... )para iterar sobre cada elemento de vídeo na NodeList;.
+-o texto eh pegado e convertido atraves do .toLowerCase() em ambas var, para garantir que a comparação nao seja 
+sensivel a maiusculas/minusculas;
+- o if verifica o seguinte: Se a categoria nao estiver incluso o valorFiltro, e o valorFiltro nao for tudo, nao eh
+para o video ser ocultado (video.style.diplay = none). Else {...} diz que, caso contrario, ou seja, caso categoria
+tenha incluso o valorFiltro, e o valor filtro for "tudo", vai dar display block. Ou seja, nao aparecerao videos
+quando o valorFiltro nao estiver incluso na categoria e quando o valor filtro nao for tudo. 
+--------------------------------------------------------------------------------------------------------------------
+-como podemos ver, mais simplificado e eficaz; ENTENDER CONDICAO TERNARIA JS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+TROCA DE .THEN PARA AWAIT
+-Antes de optarmos por usar await inves de .then, tinhamos um problema chamado "Callback Hell", ou seja, uma 
+situação em que multiplas chamadas de função com callbacks sao aninhadas profundamente dentro de outras chamadas.
+Agora, usando o Async-Await, tornamos o código mais legível e manutenível;
+-Usar await permite que você escreva código assíncrono de uma maneira que se pareça mais com código síncrono, o que 
+pode ser mais intuitivo e fácil de entender;
+-AWAIT = aguardar. const busca = await fetch("http://localhost:3000/videos") . Desta forma, ele vai AGUARDAR que a 
+buscar (fetch) seja feita para que o restante do código seja executado, para não ficar usando .THEN para que o 
+código que vem a seguir, espere o resultado do código anterior. Faz com que a execução da função assíncrona pause
+até que a fetch promise seja resolvida, quando a promise eh resolvida, a resposta HTTP é armazenada na constante
+busca.
+
+- const videos = await busca.json() = Primeiro, entender que precisa-se converter (e ler) a resposta HTTP em JSON,
+para que possamos trabalhar diretamente com os dados JSON depois. Mas ao usar o await, faz com que a execução pause
+até que a Promise resolvida seja o objeto JSON (conversão e leitura)
